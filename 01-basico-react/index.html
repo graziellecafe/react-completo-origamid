@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <div id="app">App</div>
+    <div id="app">Meu app</div>
     <!-- Precisa indicar para o Babel que ele deve transpilar o código -->
     <script type="text/babel">
       // Cria um componente chamado App
@@ -25,10 +25,22 @@
         const [total, setTotal] = React.useState(0); 
         return <button onClick={() => setTotal(total+1)}>Adicionar {total} </button>
       }
+
+      const Button = () => { 
+        return <button>Comprar</button>
+      }
+
+      // const MainNav = () => { 
+      //   return (
+      //     <nav>
+      //        <a href="#">Link 1 </a>
+      //       <Button />
+      //     </nav>
+      //     )
+      // }
+      
       function App() {
         return <div>
-          <h1>Meu App</h1>;
-          <Button/>
           <Button/>
         </div>
       }
