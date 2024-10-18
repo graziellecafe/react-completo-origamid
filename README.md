@@ -59,24 +59,6 @@ const MainNav = () => {
 }
 ```
 
-### Hooks
-Utilizamos o React pela facilidade de sincronização do estado. Os Hooks são funções especiais de React, o useState possibilita a sincronização do estado.
-
-```js
-const Compras = () => { 
-  // useState é um Hook que define uma variável reativa
-  const [count, setCount] = React.useState(0); 
-
-  return (
-    <div>
-      <button onClick={() => setCount(count+1)}>Comprar: {count} </button>
-      <p>Total: {count}; 
-      <p>Preço: R$ { count * 250} </p>
-    </div>
-  )
-}
-```
-
 ### Javascript
 Utilizamos as {} para executar expressões de JavaScript e mostrar o resultado no DOM.
 
@@ -202,4 +184,58 @@ const App = () => {
 
 export default App;
 
+```
+
+### Hooks
+Estado: O estado de uma aplicação representa as características dela naquele momento. Por exemplo: os dados do usuário foram carregados, o botão está ativo, o usuário está na página de contato e etc 
+
+```js
+const App = () => { 
+  const ativo = true; 
+
+  return (
+    <button disabled={!ativo}>{ativo? 'Botão Ativo': 'Botão Inativo'}</button>
+  )
+}
+```
+
+Utilizamos o React pela facilidade de sincronização do estado. Os Hooks são funções especiais de React, o useState possibilita a sincronização do estado.
+
+```js
+const Compras = () => { 
+  // useState é um Hook que define uma variável reativa
+  const [count, setCount] = React.useState(0); 
+
+  return (
+    <div>
+      <button onClick={() => setCount(count+1)}>Comprar: {count} </button>
+      <p>Total: {count}; 
+      <p>Preço: R$ { count * 250} </p>
+    </div>
+  )
+}
+```
+
+**Objetivos**: 
+- Gerenciamento do ciclo de vida do componente
+- Criar lógicas reutilizaveis entre os componentes 
+- Gerenciamento de estados: **useState** e **useContext**
+
+**useState**: gerencie estados do componente & atomicos
+```js
+function CounterFunction () { 
+  const [count, setCount] = useState(0); 
+
+  const increment = () => {
+    setCount(prevCount => prevCount + 1);
+  }; 
+}
+
+return (
+  <div>
+    <h2>Contador usando hooks useState</h2>
+    <p>contagem: {count}</p>
+    <button onClick={increment}>adicionar</button>
+  </div>
+)
 ```
